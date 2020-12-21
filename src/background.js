@@ -32,8 +32,7 @@ async function createWindow() {
     win.loadURL('app://./index.html')
     require('update-electron-app')({
       repo: 'https://github.com/RHAM91/updaterautomatico',
-      updateInterval: '5 minutes',
-      logger: require('electron-log')
+      updateInterval: '5 minutes'
     })
   }
 }
