@@ -18,7 +18,7 @@ async function createWindow() {
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
-      nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
+      nodeIntegration: true
     }
   })
 
@@ -30,6 +30,11 @@ async function createWindow() {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
+    require('update-electron-app')({
+      repo: 'https://github.com/RHAM91/updaterautomatico',
+      updateInterval: '5 minutes',
+      logger: require('electron-log')
+    })
   }
 }
 
